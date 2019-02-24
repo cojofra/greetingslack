@@ -1,13 +1,13 @@
 {
   "name": "GreetingSlack",
-  "description": "This app connects to your slack team and greets new joiners with a custom msg",
+  "description": "This app connects to our slack and greets users that join specific channels with a custom ephemeral msg",
   "keywords": [
     "productivity",
     "Slack",
     "bot"
   ],
-  "website": "https://github.com/orliesaurus/greetingslack",
-  "repository": "https://github.com/orliesaurus/greetingslack",
+  "website": "https://github.com/cojofra/greetingslack",
+  "repository": "https://github.com/cojofra/greetingslack",
   "env": {
     "SLACK_TOKEN": {
       "description": "Your Slack API Token",
@@ -18,9 +18,20 @@
       "description": "We UNFURL only the last link by default, trust me its good",
       "value": "true"
     },
-    "WELCOME_MESSAGE": {
-      "description": "Your Welcome message string",
-      "value": "A personalized welcome msg that is broadcasted to your Slack Users"
+    "WELCOME_MESSAGE_EMP": {
+      "description": "Your Welcome message to Autodesk employees - string",
+      "value": "A personalized welcome msg that is broadcasted to your Slack Users that are Autodesk Employees",
+      "required": "true"
+    },
+    "WELCOME_MESSAGE_RES": {
+      "description": "Your Welcome message to Autodesk Slack Guests - string",
+      "value": "A personalized welcome msg that is broadcasted to your Slack Users that are single or multi-channel guests",
+      "required": "true"
+    },
+    "CHANNELS_TO_MONITOR":{
+      "description": "Channels which we need to monitor in json array format",
+      "value": "['ID_one','ID_two','etc']",
+      "required": "true"
     }
   }
 }
