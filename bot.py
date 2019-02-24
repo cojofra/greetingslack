@@ -18,13 +18,13 @@ requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 ###VARIABLES THAT YOU NEED TO SET MANUALLY IF NOT ON HEROKU#####
 try:
         MESSAGE_EMP = os.environ['WELCOME_MESSAGE_EMP']
-        MESSAGE_RES = os.environ['WELCOME_MESSAGE_RES']
+        MESSAGE_GUE = os.environ['WELCOME_MESSAGE_GUE']
         TOKEN = os.environ['SLACK_TOKEN']
         CHANNELS = json.loads(os.environ['CHANNELS_TO_MONITOR'])
         UNFURL = os.environ['UNFURL_LINKS']
 except:
         MESSAGE_EMP = 'Manually set the employee Message if youre not running through heroku or have not set vars in ENV'
-        MESSAGE_RES = 'Manually set the resident Message if youre not running through heroku or have not set vars in ENV'
+        MESSAGE_GUE = 'Manually set the guest Message if youre not running through heroku or have not set vars in ENV'
         TOKEN = 'Manually set the API Token if youre not running through heroku or have not set vars in ENV'
         UNFURL = 'FALSE'
 ###############################################################
@@ -38,7 +38,7 @@ def get_user_info(user_id):
     resp = resp.json()
 
     user_info['real_name'] = resp['user']['real_name']
-    user_info['type'] = 'resident' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee'
+    user_info['type'] = 'guest' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee'
     return user_info
 
 def parse_join(message):
