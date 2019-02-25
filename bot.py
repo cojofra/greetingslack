@@ -15,18 +15,12 @@ logging.basicConfig(level=logging.DEBUG,
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-###VARIABLES THAT YOU NEED TO SET MANUALLY IF NOT ON HEROKU#####
-try:
-        MESSAGE_EMP = os.environ['WELCOME_MESSAGE_EMP']
-        MESSAGE_GUE = os.environ['WELCOME_MESSAGE_GUE']
-        TOKEN = os.environ['SLACK_TOKEN']
-        CHANNELS = json.loads(os.environ['CHANNELS_TO_MONITOR'])
-        UNFURL = os.environ['UNFURL_LINKS']
-except:
-        MESSAGE_EMP = 'Manually set the employee Message if youre not running through heroku or have not set vars in ENV'
-        MESSAGE_GUE = 'Manually set the guest Message if youre not running through heroku or have not set vars in ENV'
-        TOKEN = 'Manually set the API Token if youre not running through heroku or have not set vars in ENV'
-        UNFURL = 'FALSE'
+MESSAGE_EMP = os.environ['WELCOME_MESSAGE_EMP']
+MESSAGE_GUE = os.environ['WELCOME_MESSAGE_GUE']
+TOKEN = os.environ['SLACK_TOKEN']
+CHANNELS = json.loads(os.environ['CHANNELS_TO_MONITOR'])
+UNFURL = os.environ['UNFURL_LINKS']
+
 ###############################################################
 
 def is_tc_channel_join(msg):

@@ -30,7 +30,7 @@
     },
     "CHANNELS_TO_MONITOR":{
       "description": "Channels which we need to monitor in json array format",
-      "value": "['ID_one','ID_two','etc']",
+      "value": "[\"ID_one\",\"ID_two\"]",
       "required": "true"
     }
   }
