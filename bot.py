@@ -24,7 +24,7 @@ UNFURL = os.environ['UNFURL_LINKS']
 ###############################################################
 
 def is_tc_channel_join(msg):
-    return msg['type'] == "member_joined_channel" and msg['type'] in CHANNELS and msg['channel_type'] == 'C'
+    return msg['type'] == "member_joined_channel" and msg['channel'] in CHANNELS and msg['channel_type'] == 'C'
 
 def get_user_info(user_id):
     logging.debug('FINDING USER WITH ID'+user_id)
@@ -37,6 +37,7 @@ def get_user_info(user_id):
 
 def parse_join(message):
     m = json.loads(message)
+    logging.debug(m)
     if is_tc_channel_join(m):
         user_id = m["user"]
         user_info = get_user_info(user_id)
