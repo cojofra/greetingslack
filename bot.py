@@ -27,12 +27,14 @@ def is_tc_channel_join(msg):
     return msg['type'] == "member_joined_channel" and msg['channel'] in CHANNELS and msg['channel_type'] == 'C'
 
 def get_user_info(user_id):
-    logging.debug('FINDING USER WITH ID'+user_id)
+    logging.debug('FINDING USER WITH ID: '+user_id)
     resp = requests.get("https://slack.com/api/users.info?token="+TOKEN+"&user="+user_id)
     resp = resp.json()
 
-    user_info['real_name'] = resp['user']['real_name']
-    user_info['type'] = 'guest' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee'
+    user_info = {
+        'real_name':resp['user']['real_name'],
+        'type':'guest' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee',
+    }
     return user_info
 
 def parse_join(message):
@@ -46,13 +48,13 @@ def parse_join(message):
 
         # Different message based on user type
         data = {
-                'token': TOKEN,
-                'channel': channel_id,
-                'text': MESSAGE_EMP if user_info['type'] == 'employee' else MESSAGE_RES,
-                'user': user_id,
-                'parse': 'full',
-                'as_user': 'true',
-                }
+            'token': TOKEN,
+            'channel': channel_id,
+            'text': MESSAGE_EMP if user_info['type'] == 'employee' else MESSAGE_RES,
+            'user': user_id,
+            'parse': 'full',
+            'as_user': 'true',
+        }
 
         logging.debug(data)
 
