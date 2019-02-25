@@ -35,9 +35,16 @@ Go to Heroku's Settings, then  where it says `Config Variables` click `Reveal Co
 
 ## Q2. How do I know if it worked?
 A2.
-After setting up the bot, your welcome message will be displayed to every new user, as soon as a they join your Slack network - as a direct message.
+After setting up the bot, your welcome message will be displayed to every new user, as soon as a they join the given slack channel - as an ephemeral message. That means it is posted in the channel, but only visible to that user.
 
 ## Q3. How do I add the channels I want to monitor?
 A3.
 In the `Config Variables` variables in heroku, add all the channel ids to the appropriate variable, following this syntax ["Var1","Var2","Var3"]. The channel ids can be retrieved by going to slack in your browser and opening the right channel. The id is displayed in the url after `messages/` and before `/convo`.
 
+## Q4. Can I add attachments?
+A4.
+Attachments in slack lingo are links or other info that is formatted in a special way. Right now that is not possible yet, but it is to come.
+
+## Q5. What is the differentiation between full-time employees and guests?
+A5.
+I have the need to send different messages to full users of the slack (full employees of the company) and external guests. Those guests can either be single or multi-channel users.
