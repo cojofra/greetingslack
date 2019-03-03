@@ -245,17 +245,17 @@ tc_channels = {
         'resident': resident_global,
     },
     'CFVV9V35W' : {
-        'employee': employee_local % (boston[city_name],boston[slack_handles])
-        'resident': resident_local % (boston[city_name],boston[slack_handles])
+        'employee': employee_local % (boston[city_name],boston[slack_handles]),
+        'resident': resident_local % (boston[city_name],boston[slack_handles]),
     },
     'CFZJUL20N' : {
-        'employee': employee_local % (sf[city_name],sf[slack_handles])
-        'resident': resident_local % (sf[city_name],sf[slack_handles])
+        'employee': employee_local % (sf[city_name],sf[slack_handles]),
+        'resident': resident_local % (sf[city_name],sf[slack_handles]),
     },
     'CFZUUDHU2' : {
-        'employee': employee_local % (toronto[city_name],toronto[slack_handles])
-        'resident': resident_local % (toronto[city_name],toronto[slack_handles])
-    }
+        'employee': employee_local % (toronto[city_name],toronto[slack_handles]),
+        'resident': resident_local % (toronto[city_name],toronto[slack_handles]),
+    },
 }
 
 def is_tc_channel_join(msg):
