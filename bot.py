@@ -15,16 +15,250 @@ logging.basicConfig(level=logging.DEBUG,
 from requests.packages.urllib3.exceptions import InsecureRequestWarning
 requests.packages.urllib3.disable_warnings(InsecureRequestWarning)
 
-MESSAGE_EMP = os.environ['WELCOME_MESSAGE_EMP']
-MESSAGE_GUE = os.environ['WELCOME_MESSAGE_GUE']
 TOKEN = os.environ['SLACK_TOKEN']
-CHANNELS = json.loads(os.environ['CHANNELS_TO_MONITOR'])
 UNFURL = os.environ['UNFURL_LINKS']
 
 ###############################################################
+toronto = {
+    city_name: "Toronto",
+    slack_handles:"*<@TC-Team-Toronto>* and *<@Residents-Toronto>*",
+}
+sf = {
+    city_name: "San Francisco",
+    slack_handles:"*<@TC-Team-SF>* and *<@Residents-SF>*",
+}
+boston = {
+    city_name: "Boston",
+    slack_handles:"*<@TC-Team-Boston>* and *<@Residents-Boston>*",
+}
+
+employee_global = """[
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": ":wave: Welcome to the global Technology Centers Slack
+                channel, where Autodesk employees can connect with Technology
+                Center residents; to read about - as well as share - exciting,
+                relevant updates including invites or links to presentations
+                and speakers."
+        }
+    },
+    {
+        "type": "divider"
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "A few simple guidelines to remember about this channel:"
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share
+                Autodesk IP.*\n2. :question: If you have any questions about
+                the technology center itself – how to book a conference room,
+                or our workshop policies for example, just ask <@niles>! If he
+                doesn’t know the answer, he will find someone who does.\n3.
+                :email: We’ve also created some helpful handles for you to
+                reach specific people at the different technology centers.\n
+                *<@TC-Team-Toronto>* – Toronto Community Team\n*<@TC-Team-SF>*
+                – San Francisco Community Team\n*<@TC-Team-Boston>* – Boston
+                Community Team\n*<@Residents-Toronto>* – All current Toronto
+                residents\n*<@Residents-SF>* – All current San Francisco
+                residents\n*<@Residents-Boston>* – All current Boston
+                residents"
+        }
+    },
+    {
+        "type": "context",
+        "elements": [
+            {
+                "type": "plain_text",
+                "text": "Your Autodesk Technology Center Team",
+                "emoji": true
+            }
+        ]
+    }
+]"""
+
+employee_local = """[
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": ":wave: Welcome to the local Technology Center %s Slack
+                channel, where Autodesk employees can connect with Technology
+                Center residents; to read about - as well as share - exciting,
+                relevant updates including invites or links to presentations
+                and speakers."
+        }
+    },
+    {
+        "type": "divider"
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "A few simple guidelines to remember about this channel:"
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share
+                Autodesk IP.*\n2. :question: If you have any questions about
+                the technology center itself – how to book a conference room,
+                or our workshop policies for example, just ask <@niles>! If he
+                doesn’t know the answer, he will find someone who does.\n3.
+                :email: You can reach the local community team and the
+                residents with the following handles respectively: %s"
+        }
+    },
+    {
+        "type": "context",
+        "elements": [
+            {
+                "type": "plain_text",
+                "text": "Your Autodesk Technology Center Team",
+                "emoji": true
+            }
+        ]
+    }
+]"""
+
+resident_global = """[
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": ":wave: Welcome to the Global Technology Centers Slack
+                channel where you can connect with fellow resident teams as
+                well as Autodesk employees across all the tech centers. This
+                is the place to read about - as well as share - exciting,
+                relevant updates including invites or links to presentations
+                and speakers."
+        }
+    },
+    {
+        "type": "divider"
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "A few simple guidelines to remember about this channel:"
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "1. :loudspeaker: *This is channel is accessible by all of
+                Autodesk. Do not share any sensitive IP.*\n2. :cityscape: You
+                have also been added to your site-specific tech center
+                channel. That’s the place to find information about local tech
+                center events and updates.\n3. :question: If you have general
+                questions about the technology centers (how to book conference
+                rooms or workshop policies, for example), just ask @niles. If
+                he doesn’t know the answer, he will find someone who does.\n4.
+                :email: We’ve also created some helpful handles for you to
+                reach specific people at the different technology centers.\n
+                *<@TC-Team-Toronto>* – Toronto Community Team\n*<@TC-Team-SF>*
+                – San Francisco Community Team\n*<@TC-Team-Boston>* – Boston
+                Community Team\nIn this channel you can also reach your fellow
+                global residents with *<@Residents-Toronto>*,
+                *<@Residents-Boston>*, *<@Residents-SF>*."
+        }
+    },
+    {
+        "type": "context",
+        "elements": [
+            {
+                "type": "plain_text",
+                "text": "Your Autodesk Technology Center Team",
+                "emoji": true
+            }
+        ]
+    }
+]"""
+
+resident_local = """[
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": ":wave: Welcome to your local Technology Center %s Slack
+                channel where you can connect with other residents, your
+                community team, and employees in the space. This is the place
+                to read about - as well as share - exciting, relevant updates
+                including invites or links to presentations and speakers."
+        }
+    },
+    {
+        "type": "divider"
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "A few simple guidelines to remember about this channel:"
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "1. :loudspeaker: *This is channel is accessible by all of
+                Autodesk. Do not share any sensitive IP.*\n2. :cityscape: This
+                is your site-specific channel and it’s the place to find
+                information about local tech center events and updates.\n3.
+                :question: If you have general questions about the technology
+                centers (how to book conference rooms or workshop policies,
+                for example), just ask @niles. If he doesn’t know the answer,
+                he will find someone who does.\n4. :email: You can reach the
+                local community team and your fellow residents with the
+                following handles respectively: %s"
+        }
+    },
+    {
+        "type": "context",
+        "elements": [
+            {
+                "type": "plain_text",
+                "text": "Your Autodesk Technology Center Team",
+                "emoji": true
+            }
+        ]
+    }
+]"""
+
+tc_channels = {
+    'CA405J807': {
+        'employee': employee_global,
+        'resident': resident_global,
+    },
+    'CFVV9V35W' : {
+        'employee': employee_local % (boston[city_name],boston[slack_handles])
+        'resident': resident_local % (boston[city_name],boston[slack_handles])
+    },
+    'CFZJUL20N' : {
+        'employee': employee_local % (sf[city_name],sf[slack_handles])
+        'resident': resident_local % (sf[city_name],sf[slack_handles])
+    },
+    'CFZUUDHU2' : {
+        'employee': employee_local % (toronto[city_name],toronto[slack_handles])
+        'resident': resident_local % (toronto[city_name],toronto[slack_handles])
+    }
+}
 
 def is_tc_channel_join(msg):
-    return msg['type'] == "member_joined_channel" and msg['channel'] in CHANNELS and msg['channel_type'] == 'C'
+    return msg['type'] == "member_joined_channel" and msg['channel'] in tc_channels and msg['channel_type'] == 'C'
 
 def get_user_info(user_id):
     logging.debug('FINDING USER WITH ID: '+user_id)
@@ -33,7 +267,7 @@ def get_user_info(user_id):
 
     user_info = {
         'real_name':resp['user']['real_name'],
-        'type':'guest' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee',
+        'type':'resident' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee',
     }
     return user_info
 
@@ -49,7 +283,7 @@ def parse_join(message):
         data = {
             'token': TOKEN,
             'channel': channel_id,
-            'text': MESSAGE_EMP if user_info['type'] == 'employee' else MESSAGE_RES,
+            'text': tc_channels[channel_id[user_info['type']]]
             'user': user_id,
             'parse': 'full',
             'as_user': 'true',
@@ -65,7 +299,7 @@ def parse_join(message):
 
 #Connects to Slacks and initiates socket handshake
 def start_rtm():
-    
+
     r = requests.get("https://slack.com/api/rtm.start?token="+TOKEN, verify=False)
     r = r.json()
     logging.info(r)
