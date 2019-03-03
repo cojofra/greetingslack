@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 import websocket
 import json
 import requests
@@ -60,16 +61,16 @@ employee_global = """[
             "type": "mrkdwn",
             "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share
                 Autodesk IP.*\n2. :question: If you have any questions about
-                the technology center itself – how to book a conference room,
+                the technology center itself - how to book a conference room,
                 or our workshop policies for example, just ask <@niles>! If he
                 doesn’t know the answer, he will find someone who does.\n3.
                 :email: We’ve also created some helpful handles for you to
                 reach specific people at the different technology centers.\n
-                *<@TC-Team-Toronto>* – Toronto Community Team\n*<@TC-Team-SF>*
-                – San Francisco Community Team\n*<@TC-Team-Boston>* – Boston
-                Community Team\n*<@Residents-Toronto>* – All current Toronto
-                residents\n*<@Residents-SF>* – All current San Francisco
-                residents\n*<@Residents-Boston>* – All current Boston
+                *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>*
+                – San Francisco Community Team\n*<@TC-Team-Boston>* - Boston
+                Community Team\n*<@Residents-Toronto>* - All current Toronto
+                residents\n*<@Residents-SF>* - All current San Francisco
+                residents\n*<@Residents-Boston>* - All current Boston
                 residents"
         }
     },
@@ -113,7 +114,7 @@ employee_local = """[
             "type": "mrkdwn",
             "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share
                 Autodesk IP.*\n2. :question: If you have any questions about
-                the technology center itself – how to book a conference room,
+                the technology center itself - how to book a conference room,
                 or our workshop policies for example, just ask <@niles>! If he
                 doesn’t know the answer, he will find someone who does.\n3.
                 :email: You can reach the local community team and the
@@ -169,8 +170,8 @@ resident_global = """[
                 he doesn’t know the answer, he will find someone who does.\n4.
                 :email: We’ve also created some helpful handles for you to
                 reach specific people at the different technology centers.\n
-                *<@TC-Team-Toronto>* – Toronto Community Team\n*<@TC-Team-SF>*
-                – San Francisco Community Team\n*<@TC-Team-Boston>* – Boston
+                *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>*
+                - San Francisco Community Team\n*<@TC-Team-Boston>* - Boston
                 Community Team\nIn this channel you can also reach your fellow
                 global residents with *<@Residents-Toronto>*,
                 *<@Residents-Boston>*, *<@Residents-SF>*."
