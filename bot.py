@@ -38,7 +38,7 @@ employee_global = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": ":wave: Welcome to the global Technology Centers Slack channel, where Autodesk employees can connect with Technology Center residents; to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
+            "text": ":wave: Welcome to the global Technology Centers slack channel, where Autodesk employees can connect with Technology Center residents; to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
         }
     },
     {
@@ -75,7 +75,7 @@ employee_local = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": ":wave: Welcome to the local Technology Center %s Slack channel, where Autodesk employees can connect with Technology Center residents; to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
+            "text": ":wave: Welcome to the local Technology Center %s slack channel, where Autodesk employees can connect with Technology Center residents; to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
         }
     },
     {
@@ -112,7 +112,7 @@ resident_global = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": ":wave: Welcome to the Global Technology Centers Slack channel where you can connect with fellow resident teams as well as Autodesk employees across all the tech centers. This is the place to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
+            "text": ":wave: Welcome to the Global Technology Centers slack channel where you can connect with fellow resident teams as well as Autodesk employees across all the tech centers. This is the place to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
         }
     },
     {
@@ -149,7 +149,7 @@ resident_local = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": ":wave: Welcome to your local Technology Center %s Slack channel where you can connect with other residents, your community team, and employees in the space. This is the place to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
+            "text": ":wave: Welcome to your local Technology Center %s slack channel where you can connect with other residents, your community team, and employees in the space. This is the place to read about - as well as share - exciting, relevant updates including invites or links to presentations and speakers."
         }
     },
     {
