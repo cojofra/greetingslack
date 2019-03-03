@@ -42,9 +42,6 @@ employee_global = """[
         }
     },
     {
-        "type": "divider"
-    },
-    {
         "type": "section",
         "text": {
             "type": "mrkdwn",
@@ -55,7 +52,14 @@ employee_global = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share Autodesk IP.*\n2. :question: If you have any questions about the technology center itself - how to book a conference room, or our workshop policies for example, just ask <@niles>! If he doesn’t know the answer, he will find someone who does.\n3. :email: We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* – San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team\n*<@Residents-Toronto>* - All current Toronto residents\n*<@Residents-SF>* - All current San Francisco residents\n*<@Residents-Boston>* - All current Boston residents"
+            "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share Autodesk IP.*\n2. :question: If you have any questions about the technology center itself - how to book a conference room, or our workshop policies for example, just ask <@niles>! If he doesn’t know the answer, he will find someone who does."
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* – San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team\n*<@Residents-Toronto>* - All current Toronto residents\n*<@Residents-SF>* - All current San Francisco residents\n*<@Residents-Boston>* - All current Boston residents"
         }
     },
     {
@@ -79,9 +83,6 @@ employee_local = """[
         }
     },
     {
-        "type": "divider"
-    },
-    {
         "type": "section",
         "text": {
             "type": "mrkdwn",
@@ -92,7 +93,14 @@ employee_local = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share Autodesk IP.*\n2. :question: If you have any questions about the technology center itself - how to book a conference room, or our workshop policies for example, just ask <@niles>! If he doesn’t know the answer, he will find someone who does.\n3. :email: You can reach the local community team and the residents with the following handles respectively: %s"
+            "text": "1. :loudspeaker: *This is a PUBLIC channel. Do not share Autodesk IP.*\n2. :question: If you have any questions about the technology center itself - how to book a conference room, or our workshop policies for example, just ask <@niles>! If he doesn’t know the answer, he will find someone who does."
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "You can reach the local community team and the residents with the following handles respectively: %s"
         }
     },
     {
@@ -116,9 +124,6 @@ resident_global = """[
         }
     },
     {
-        "type": "divider"
-    },
-    {
         "type": "section",
         "text": {
             "type": "mrkdwn",
@@ -129,7 +134,14 @@ resident_global = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "1. :loudspeaker: *This is channel is accessible by all of Autodesk. Do not share any sensitive IP.*\n2. :cityscape: You have also been added to your site-specific tech center channel. That’s the place to find information about local tech center events and updates.\n3. :question: If you have general questions about the technology centers (how to book conference rooms or workshop policies, for example), just ask @niles. If he doesn’t know the answer, he will find someone who does.\n4. :email: We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* - San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team\nIn this channel you can also reach your fellow global residents with *<@Residents-Toronto>*, *<@Residents-Boston>*, *<@Residents-SF>*."
+            "text": "1. :loudspeaker: *This is channel is accessible by all of Autodesk. Do not share any sensitive IP.*\n2. :cityscape: You have also been added to your site-specific tech center channel. That’s the place to find information about local tech center events and updates.\n3. :question: If you have general questions about the technology centers (how to book conference rooms or workshop policies, for example), just ask @niles. If he doesn’t know the answer, he will find someone who does."
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* - San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team\nIn this channel you can also reach your fellow global residents with *<@Residents-Toronto>*, *<@Residents-Boston>*, *<@Residents-SF>*."
         }
     },
     {
@@ -153,9 +165,6 @@ resident_local = """[
         }
     },
     {
-        "type": "divider"
-    },
-    {
         "type": "section",
         "text": {
             "type": "mrkdwn",
@@ -166,7 +175,14 @@ resident_local = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "1. :loudspeaker: *This is channel is accessible by all of Autodesk. Do not share any sensitive IP.*\n2. :cityscape: This is your site-specific channel and it’s the place to find information about local tech center events and updates.\n3. :question: If you have general questions about the technology centers (how to book conference rooms or workshop policies, for example), just ask @niles. If he doesn’t know the answer, he will find someone who does.\n4. :email: You can reach the local community team and your fellow residents with the following handles respectively: %s"
+            "text": "1. :loudspeaker: *This is channel is accessible by all of Autodesk. Do not share any sensitive IP.*\n2. :cityscape: This is your site-specific channel and it’s the place to find information about local tech center events and updates.\n3. :question: If you have general questions about the technology centers (how to book conference rooms or workshop policies, for example), just ask @niles. If he doesn’t know the answer, he will find someone who does."
+        }
+    },
+    {
+        "type": "section",
+        "text": {
+            "type": "mrkdwn",
+            "text": "You can reach the local community team and your fellow residents with the following handles respectively: %s"
         }
     },
     {
