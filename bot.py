@@ -216,7 +216,7 @@ def get_user_info(user_id):
 
     user_info = {
         'real_name':resp['user']['real_name'],
-        'type':'resident' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee',
+        'type':'employee' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'resident',
     }
     return user_info
 
