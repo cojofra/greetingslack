@@ -290,7 +290,13 @@ def parse_join(message):
         data = {
             'token': TOKEN,
             'channel': channel_id,
-            'text': tc_channels[channel_id][user_info['type']],
+            'text': """Welcome to the Global Technology Centers Slack channel,
+                where Autodesk employees can connect with Technology Center
+                residents; to read about - as well as share - exciting,
+                relevant updates including invites or links to presentations
+                and speakers. If you have any operational questions, ask
+                <@niles>""",
+            'blocks': tc_channels[channel_id][user_info['type']],
             'user': user_id,
             'parse': 'full',
             'as_user': 'true',
