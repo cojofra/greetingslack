@@ -221,7 +221,6 @@ tc_channels = {
 }
 
 def is_tc_channel_join(msg):
-    logging.debug(msg)
     return msg['type'] == "member_joined_channel" and msg['channel_type'] == 'C' and msg['channel'] in tc_channels
 
 def get_user_info(user_id):
