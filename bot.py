@@ -253,8 +253,10 @@ tc_channels = {
         'resident': resident_local % (sf[city_name],sf[slack_handles]),
     },
     'CFZUUDHU2' : {
-        'employee': employee_local % (toronto[city_name],toronto[slack_handles]),
-        'resident': resident_local % (toronto[city_name],toronto[slack_handles]),
+        'employee': employee_local % (toronto[city_name],
+            toronto[slack_handles]),
+        'resident': resident_local % (toronto[city_name],
+            toronto[slack_handles]),
     },
 }
 
@@ -263,12 +265,14 @@ def is_tc_channel_join(msg):
 
 def get_user_info(user_id):
     logging.debug('FINDING USER WITH ID: '+user_id)
-    resp = requests.get("https://slack.com/api/users.info?token="+TOKEN+"&user="+user_id)
+    resp = requests.get("https://slack.com/api/users.info?token="+TOKEN+
+        "&user="+user_id)
     resp = resp.json()
 
     user_info = {
         'real_name':resp['user']['real_name'],
-        'type':'resident' if resp['user']['is_restricted'] or resp['user']['is_ultra_restricted'] else 'employee',
+        'type':'resident' if resp['user']['is_restricted'] or resp['user']['\
+        is_ultra_restricted'] else 'employee',
     }
     return user_info
 
@@ -284,7 +288,7 @@ def parse_join(message):
         data = {
             'token': TOKEN,
             'channel': channel_id,
-            'text': tc_channels[channel_id[user_info['type']]]
+            'text': tc_channels[channel_id[user_info['type']]],
             'user': user_id,
             'parse': 'full',
             'as_user': 'true',
@@ -295,13 +299,16 @@ def parse_join(message):
         if (UNFURL.lower() == "false"):
           data = data.update({'unfurl_link': 'false'})
 
-        xx = requests.post("https://slack.com/api/chat.postEphemeral", data=data)
-        logging.debug('\033[91m' + "HELLO SENT TO " + user_info['real_name'] + '\033[0m')
+        xx = requests.post("https://slack.com/api/chat.postEphemeral",
+            data=data)
+        logging.debug('\033[91m' + "HELLO SENT TO " + user_info['real_name'] +
+            '\033[0m')
 
 #Connects to Slacks and initiates socket handshake
 def start_rtm():
 
-    r = requests.get("https://slack.com/api/rtm.start?token="+TOKEN, verify=False)
+    r = requests.get("https://slack.com/api/rtm.start?token="+TOKEN,
+        verify=False)
     r = r.json()
     logging.info(r)
     r = r["url"]
