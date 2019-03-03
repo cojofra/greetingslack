@@ -21,16 +21,16 @@ UNFURL = os.environ['UNFURL_LINKS']
 
 ###############################################################
 toronto = {
-    city_name: "Toronto",
-    slack_handles:"*<@TC-Team-Toronto>* and *<@Residents-Toronto>*",
+    'city_name': "Toronto",
+    'slack_handles':"*<@TC-Team-Toronto>* and *<@Residents-Toronto>*",
 }
 sf = {
-    city_name: "San Francisco",
-    slack_handles:"*<@TC-Team-SF>* and *<@Residents-SF>*",
+    'city_name': "San Francisco",
+    'slack_handles':"*<@TC-Team-SF>* and *<@Residents-SF>*",
 }
 boston = {
-    city_name: "Boston",
-    slack_handles:"*<@TC-Team-Boston>* and *<@Residents-Boston>*",
+    'city_name': "Boston",
+    'slack_handles':"*<@TC-Team-Boston>* and *<@Residents-Boston>*",
 }
 
 employee_global = """[
