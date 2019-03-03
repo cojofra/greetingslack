@@ -263,6 +263,7 @@ tc_channels = {
 }
 
 def is_tc_channel_join(msg):
+    logging.debug(msg['channel'])
     return msg['type'] == "member_joined_channel" and msg['channel'] in tc_channels and msg['channel_type'] == 'C'
 
 def get_user_info(user_id):
@@ -280,6 +281,7 @@ def get_user_info(user_id):
 
 def parse_join(message):
     m = json.loads(message)
+    logging.debug(is_tc_channel_join(m))
     if is_tc_channel_join(m):
         user_id = m["user"]
         user_info = get_user_info(user_id)
