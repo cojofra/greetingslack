@@ -100,7 +100,7 @@ employee_local = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "You can reach the local community team with this slack group %s"
+            "text": "You can reach the local community team and your fellow residentsin here. Use %s for your local community team."
         }
     },
     {
