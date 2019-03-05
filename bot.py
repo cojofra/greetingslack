@@ -22,15 +22,15 @@ UNFURL = os.environ['UNFURL_LINKS']
 ###############################################################
 toronto = {
     'city_name': "Toronto",
-    'slack_handles':"*<@TC-Team-Toronto>* and *<@Residents-Toronto>*",
+    'slack_handles':"*<@TC-Team-Toronto>*",
 }
 sf = {
     'city_name': "San Francisco",
-    'slack_handles':"*<@TC-Team-SF>* and *<@Residents-SF>*",
+    'slack_handles':"*<@TC-Team-SF>*",
 }
 boston = {
     'city_name': "Boston",
-    'slack_handles':"*<@TC-Team-Boston>* and *<@Residents-Boston>*",
+    'slack_handles':"*<@TC-Team-Boston>*",
 }
 
 employee_global = """[
@@ -59,7 +59,7 @@ employee_global = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* – San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team\n*<@Residents-Toronto>* - All current Toronto residents\n*<@Residents-SF>* - All current San Francisco residents\n*<@Residents-Boston>* - All current Boston residents"
+            "text": "We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* – San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team"
         }
     },
     {
@@ -100,7 +100,7 @@ employee_local = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "You can reach the local community team and the residents with the following handles respectively: %s"
+            "text": "You can reach the local community team with this slack group %s"
         }
     },
     {
@@ -141,7 +141,7 @@ resident_global = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* - San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team\nIn this channel you can also reach your fellow global residents with *<@Residents-Toronto>*, *<@Residents-Boston>*, *<@Residents-SF>*."
+            "text": "We’ve also created some helpful handles for you to reach specific people at the different technology centers.\n *<@TC-Team-Toronto>* - Toronto Community Team\n*<@TC-Team-SF>* - San Francisco Community Team\n*<@TC-Team-Boston>* - Boston Community Team\nIn this channel you can also reach your fellow global residents directly."
         }
     },
     {
@@ -182,7 +182,7 @@ resident_local = """[
         "type": "section",
         "text": {
             "type": "mrkdwn",
-            "text": "You can reach the local community team and your fellow residents with the following handles respectively: %s"
+            "text": "You can reach the local community team and your fellow residentsin here. Use %s for your local community team."
         }
     },
     {
