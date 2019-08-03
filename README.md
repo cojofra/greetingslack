@@ -5,7 +5,7 @@ Usually this is used to tell new joiners about the network, the guidelines, rule
 I forked this from original code by orliesaurus. New to programming or don't know how to get started just yet? Don't fret! @izzydoesizzy wrote an amazing step by step, [tutorial with screenshot](https://medium.com/@izzydoesizzy/create-a-slack-bot-that-privately-greets-new-users-in-5-easy-steps-a38eabeabcb5)
 
 # Requirements
-Python 2.7+
+Python 3.7+
 Edit `bot.py` in the except portion to customise with your greeting and token
 
 # Installation
