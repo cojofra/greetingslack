@@ -1,6 +1,5 @@
 # Greetings Slackers
-This simple script written in basic Python will allow you to hook into the real time API of Slack and perform an ephemeral message greeting to every new joiner!
-Usually this is used to tell new joiners about the network, the guidelines, rules, useful links etc etc
+This script will allow you to hook into the real time API of Slack and perform an ephemeral message greeting to every new joiner! Usually this is used to tell new joiners about the network, the guidelines, rules, useful links etc etc
 
 I forked this from original code by orliesaurus. New to programming or don't know how to get started just yet? Don't fret! @izzydoesizzy wrote an amazing step by step, [tutorial with screenshot](https://medium.com/@izzydoesizzy/create-a-slack-bot-that-privately-greets-new-users-in-5-easy-steps-a38eabeabcb5)
 
