@@ -13,10 +13,6 @@
       "description": "Your Slack API Token",
       "value": "1234-12314123123-123123123",
       "required": "true"
-    },
-    "UNFURL_LINKS": {
-      "description": "We UNFURL only the last link by default, trust me its good",
-      "value": "true"
     }
   }
 }
