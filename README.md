@@ -14,8 +14,7 @@ git clone <thisgitrepo>
 cd <thisgitrepo>
 virtualenv greetingslack
 . greetingslack/bin/activate
-pip install requests
-pip install websocket-client
+pip install slackclient
 python bot.py &
 ```
 
